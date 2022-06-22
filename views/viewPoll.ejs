@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap demo</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container mx-auto w-50 mt-5">
+      <div class="card">
+        <div class="card-header">
+          <h4><%= polls.title %></h4>
+        </div>
+        <div class="card-body">
+          <div>
+            <p class="card-text">
+                <p><%= polls.description %></p>
+            </p>
+          </div><hr>
+          <div>
+            <h5>Result:</h5>
+            <div>
+                <div class="list-group">
+                    <% for(let r of result){%>
+                        <ul>
+                            <li class="list-group-item d-flex justify-content-between align-items-center list-group-item-success">
+                                <%= r.name %> 
+                                <span class="badge bg-primary rounded-pill"><%= r.percentige.toFixed(2) %>%</span>
+                              </li>
+                        </ul>
+                   
+                    <% }%>
+                  </div>
+            </div>
+          </div>
+          <div class="">
+            <h5>Options</h5>
+            <form action="http://localhost:3000/show/<%= polls._id %>" method="post">
+              <%  for(let p of polls.options){%>
+                    <input class="form-check-input" name="oponion" type="radio" value="<%= p._id %>" id="<%= p._id %>">
+                    <label class="form-check-label" for="<%= p._id %>">
+                        <%= p.name %>
+                    </label> <br>
+          <%      }%>
+            <input class="btn btn-secondary mt-3" type="submit" value="Submit Your Oponion">
+            <a href="/" class="btn btn-primary mt-3">Go Home</a>
+            </form>
+           
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

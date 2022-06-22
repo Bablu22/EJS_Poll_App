@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap demo</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container mx-auto w-50 mt-5">
+      <div class="card">
+        <div class="card-header">
+          <h4>Create A New Poll</h4>
+        </div>
+        <div class="card-body">
+          <div class="list-group">
+            <% for(let p of polls){%>
+            <a
+              href="/show/<%=p._id %>"
+              class="list-group-item list-group-item-action list-group-item-success mt-2 rounded"
+              ><%= p.title %></a
+            >
+            <% }%>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
