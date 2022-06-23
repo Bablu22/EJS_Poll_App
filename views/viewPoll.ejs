@@ -41,7 +41,7 @@
           </div>
           <div class="">
             <h5>Options</h5>
-            <form action="http://localhost:3000/show/<%= polls._id %>" method="post">
+            <form action="/show/<%= polls._id %>" method="post">
               <%  for(let p of polls.options){%>
                     <input class="form-check-input" name="oponion" type="radio" value="<%= p._id %>" id="<%= p._id %>">
                     <label class="form-check-label" for="<%= p._id %>">
