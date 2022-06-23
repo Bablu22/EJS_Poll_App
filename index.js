@@ -4,7 +4,7 @@ const morgan = require("morgan");
 const dotenv = require("dotenv");
 const postController = require("./controllers/createPoll");
 const showPoll = require("./controllers/showPolls");
-
+const PORT = process.env.PORT || 3000;
 
 const app = express();
 dotenv.config();
@@ -16,7 +16,6 @@ app.set("view engine", "ejs");
 app.use("/create", postController);
 app.use("/show", showPoll);
 
-
 app.get("/", (req, res) => {
   res.render("home");
 });
@@ -26,7 +25,7 @@ mongoose
     `mongodb+srv://express-poll:${process.env.PASSWORD}@cluster0.tzt34uk.mongodb.net/?retryWrites=true&w=majority`
   )
   .then(() => {
-    app.listen(3000, () => {
+    app.listen(PORT, () => {
       console.log("Database connected");
     });
   })
